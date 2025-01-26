@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  agentlab:
+    image: agentlab
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      - API_KEY=${API_KEY}
+      - RESEARCH_TOPIC=${RESEARCH_TOPIC}
+      - LLM_BACKEND=${LLM_BACKEND}
+    volumes:
+      - ./research_dir:/app/research_dir
+    stdin_open: true
+    tty: true
